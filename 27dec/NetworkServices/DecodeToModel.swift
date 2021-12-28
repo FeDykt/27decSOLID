@@ -8,14 +8,13 @@
 import Foundation
 
 class DecodeToModel {
-    var reguest: ReguestProtocol
+    var reguest: ReguestProtocol?
     init(reguest: ReguestProtocol = Reguest()) {
         self.reguest = reguest
     }
     
-    
-    func decodeToModel(completion: @escaping (FreeApps) -> Void) {
-        let url = "https://rss.applemarketingtools.com/api/v2/ru/apps/top-free/10/apps.json"
-        reguest.getReguest(url, completion: completion)
+    func getUsers(completion: @escaping (Result<[UsersModel], Error>) -> Void) {
+        let url = "https://jsonplaceholder.typicode.com/users"
+        reguest?.getReguest(url, completion: completion)
     }
 }
